@@ -11,11 +11,9 @@ class Index extends React.Component {
     const postEdges = this.props.data.allMarkdownRemark.edges
     return (
       <Layout location={this.props.location}>
-        <div className="index-container">
-          <Helmet title={config.siteTitle} />
-          <SEO />
-          <PostListing postEdges={postEdges} />
-        </div>
+        <Helmet title={config.siteTitle} />
+        <SEO />
+        <PostListing postEdges={postEdges} />
       </Layout>
     )
   }

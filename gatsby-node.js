@@ -12,9 +12,7 @@ function addSiblingNodes(createNodeField) {
       const dateB = moment(date2, siteConfig.dateFromFormat)
 
       if (dateA.isBefore(dateB)) return 1
-
       if (dateB.isBefore(dateA)) return -1
-
       return 0
     }
   )

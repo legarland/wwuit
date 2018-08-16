@@ -1,5 +1,5 @@
-const config = require("./data/SiteConfig");
-const urljoin = require("url-join");
+const config = require("./data/SiteConfig")
+const urljoin = require("url-join")
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -19,6 +19,7 @@ module.exports = {
     }
   },
   plugins: [
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
     {
@@ -99,10 +100,10 @@ module.exports = {
       resolve: "gatsby-plugin-feed",
       options: {
         setup(ref) {
-          const ret = ref.query.site.siteMetadata.rssMetadata;
-          ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-          ret.generator = "GatsbyJS Material Starter";
-          return ret;
+          const ret = ref.query.site.siteMetadata.rssMetadata
+          ret.allMarkdownRemark = ref.query.allMarkdownRemark
+          ret.generator = "GatsbyJS Material Starter"
+          return ret
         },
         query: `
         {
@@ -124,7 +125,7 @@ module.exports = {
         feeds: [
           {
             serialize(ctx) {
-              const { rssMetadata } = ctx.query.site.siteMetadata;
+              const { rssMetadata } = ctx.query.site.siteMetadata
               return ctx.query.allMarkdownRemark.edges.map(edge => ({
                 categories: edge.node.frontmatter.tags,
                 date: edge.node.fields.date,
@@ -134,7 +135,7 @@ module.exports = {
                 url: rssMetadata.site_url + edge.node.fields.slug,
                 guid: rssMetadata.site_url + edge.node.fields.slug,
                 custom_elements: [{ "content:encoded": edge.node.html }]
-              }));
+              }))
             },
             query: `
             {
@@ -169,4 +170,4 @@ module.exports = {
       }
     }
   ]
-};
+}

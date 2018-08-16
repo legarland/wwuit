@@ -1,16 +1,16 @@
 module.exports = {
-  siteTitle: "When Would I Use That???", // Site title.
+  siteTitle: "When Would I Use That?", // Site title.
   siteTitleShort: "WWIUT?", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "Real world use cases", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://whenwouldiusethat.com", // Domain of your website without pathPrefix.
-  // pathPrefix: "/gatsby-advanced-starter", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  pathPrefix: "", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "Real world use cases for the Javascript API", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   // siteFBAppID: "1825356251115265", // FB Application ID for using app insights
   // googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
   // disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter", // Disqus shortname.
-  postDefaultCategoryID: "Javascript", // Default category for posts.
+  postDefaultCategoryID: "javascript", // Default category for posts.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
   userName: "Logan Garland", // Username to display in the author segment.
