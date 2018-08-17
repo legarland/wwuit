@@ -5,9 +5,8 @@ import config from "../../data/SiteConfig"
 import "./index.css"
 
 const Container = styled.div`
-  margin: 3rem auto;
-  max-width: 600px;
-  background-color: blanchedalmond;
+  margin: 2rem auto;
+  max-width: 1000px;
 `
 
 export default class MainLayout extends React.Component {

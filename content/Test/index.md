@@ -1,14 +1,12 @@
 ---
-title: "array reduce"
+title: "Test"
 cover: "https://unsplash.it/400/300/?random?BigTest"
 category: "javascript"
-date: "08/15/2018"
-slug: "reduce"
+date: "2018-08-15"
+slug: "tester"
 tags:
     - javascript
-    - array
+    - test
 ---
 
-# Test
-
-This is my test content
+# JavaScript's Test?
