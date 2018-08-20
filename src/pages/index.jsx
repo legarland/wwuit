@@ -26,6 +26,7 @@ export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
       limit: 2000
+      filter: { frontmatter: { draft: { ne: true } } }
       sort: { fields: [fields___date], order: DESC }
     ) {
       edges {

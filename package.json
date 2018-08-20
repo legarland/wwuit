@@ -41,6 +41,7 @@
     "typography": "^0.16.17",
     "typography-plugin-code": "^0.16.11",
     "typography-theme-github": "^0.15.10",
+    "typography-theme-sutro": "^0.15.10",
     "url-join": "^4.0.0"
   },
   "devDependencies": {

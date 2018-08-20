@@ -1,5 +1,6 @@
 import React from "react"
 import Helmet from "react-helmet"
+// import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../layout"
 import UserInfo from "../components/UserInfo/UserInfo"
@@ -10,6 +11,12 @@ import SEO from "../components/SEO/SEO"
 import config from "../../data/SiteConfig"
 import "./prism-ghcolors.css"
 import "./post.css"
+
+// const HeaderImage = styled.div`
+//   height: 200px;
+//   background: url('${props => props.url}') no-repeat center center;
+//   background-size: cover;
+// `
 
 export default class PostTemplate extends React.Component {
   render() {
