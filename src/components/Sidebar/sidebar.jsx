@@ -19,7 +19,7 @@ const Container = styled.div`
   ${media.tablet`transform: translateX(-100%);`}
   transform: ${props => (props.open ? `translateX(0) !important` : ``)};
   transition: 0.5s;
-  z-index: 1
+  z-index: 1;
 `
 
 const ListHeader = styled.h2`
@@ -66,9 +66,10 @@ export default class Sidebar extends Component {
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.updateWindowDimensions()
     window.addEventListener("resize", this.updateWindowDimensions)
+    // eslint-disable-next-line
     this.setState({ desktop: window.innerWidth >= 768 })
   }
 
