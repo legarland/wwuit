@@ -5,6 +5,9 @@ import sutroTheme from "typography-theme-sutro"
 sutroTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   "ol,ul": {
     marginLeft: "20px"
+  },
+  body: {
+    wordWrap: "normal"
   }
 })
 
