@@ -62,15 +62,17 @@ const ListItem = styled.li`
 export default class Sidebar extends Component {
   constructor(props) {
     super(props)
-    this.state = { open: false, desktop: true }
+    this.state = { open: true, desktop: true }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
 
-  componentDidMount() {
-    this.updateWindowDimensions()
-    window.addEventListener("resize", this.updateWindowDimensions)
-    // eslint-disable-next-line
-    this.setState({ desktop: window.innerWidth >= 768 })
+  componentWillMount() {
+    if (window) {
+      this.updateWindowDimensions()
+      window.addEventListener("resize", this.updateWindowDimensions)
+      // eslint-disable-next-line
+      this.setState({ desktop: window.innerWidth >= 768 })
+    }
   }
 
   componentWillUnmount() {
