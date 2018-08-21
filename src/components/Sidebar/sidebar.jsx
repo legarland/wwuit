@@ -67,7 +67,7 @@ export default class Sidebar extends Component {
   }
 
   componentWillMount() {
-    if (window) {
+    if (typeof window !== "undefined") {
       this.updateWindowDimensions()
       window.addEventListener("resize", this.updateWindowDimensions)
       // eslint-disable-next-line
