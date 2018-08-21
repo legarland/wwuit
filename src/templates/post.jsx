@@ -9,7 +9,7 @@ import PostTags from "../components/PostTags/PostTags"
 import SocialLinks from "../components/SocialLinks/SocialLinks"
 import SEO from "../components/SEO/SEO"
 import config from "../../data/SiteConfig"
-import "./prism-ghcolors.css"
+import "./code-theme.css"
 import "./post.css"
 
 // const HeaderImage = styled.div`

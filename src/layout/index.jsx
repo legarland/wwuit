@@ -1,13 +1,21 @@
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
+import { media } from "../utils/css"
 import config from "../../data/SiteConfig"
 import "./index.css"
+import Sidebar from "../components/Sidebar/sidebar"
 
 const Container = styled.div`
-  margin: 2rem auto;
+  padding: 25px;
+  margin: 0 auto;
   max-width: 1000px;
+  margin-left: 250px;
+  transform: translateY(-64px);
+  ${media.tablet`margin-left: 0px; transform: translateY(0);`};
+  transition: 0.5s;
 `
+const Grid = styled.div``
 
 export default class MainLayout extends React.Component {
   getLocalTitle() {
@@ -44,16 +52,21 @@ export default class MainLayout extends React.Component {
     }
     return title
   }
+
   render() {
     const { children } = this.props
+    // const { open } = this.state.open
     return (
-      <Container>
-        <Helmet>
-          <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
-          <meta name="description" content={config.siteDescription} />
-        </Helmet>
-        {children}
-      </Container>
+      <Grid>
+        <Sidebar />
+        <Container>
+          <Helmet>
+            <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
+            <meta name="description" content={config.siteDescription} />
+          </Helmet>
+          {children}
+        </Container>
+      </Grid>
     )
   }
 }

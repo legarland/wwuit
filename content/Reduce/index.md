@@ -11,7 +11,7 @@ tags:
 
 # Array.reduce(). When Would I Use That?
 
-Insert leader text about post.
+While not as commonly used as other JavaScript array methods, `reduce()` is a performant solution to a few common scenarios.
 
 ## What does Array.reduce() do?
 

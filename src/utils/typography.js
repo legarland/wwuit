@@ -1,10 +1,15 @@
 import Typography from "typography"
-import githubTheme from "typography-theme-github"
 import sutroTheme from "typography-theme-sutro"
 
-sutroTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+sutroTheme.overrideThemeStyles = () => ({
   "ol,ul": {
     marginLeft: "20px"
+  },
+  "h1,h2,h3,h4,h5,h6": {
+    marginTop: "0"
+  },
+  "h2,h3,h4,h5,h6": {
+    marginTop: "2rem"
   },
   body: {
     wordWrap: "normal"
