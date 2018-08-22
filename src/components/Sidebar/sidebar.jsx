@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { Bars, Times } from "styled-icons/fa-solid"
-import { media, resetList } from "../../utils/css"
+import { resetList } from "../../utils/css"
 import logo from "../../../static/logos/logo.png"
 
 const Container = styled.div`
@@ -16,8 +16,8 @@ const Container = styled.div`
   height: 100vh;
   width: 250px;
   transform: translateX(0);
-  ${media.tablet`transform: translateX(-100%);`}
-  transform: ${props => (props.open ? `translateX(0) !important` : ``)};
+  transform: ${props =>
+    props.open ? `translateX(0) !important` : `translateX(-100%)`};
   transition: 0.5s;
   z-index: 1;
 `
@@ -75,15 +75,19 @@ export default class Sidebar extends Component {
     }
   }
 
+  componentDidMount() {
+    this.updateWindowDimensions()
+  }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWindowDimensions)
   }
 
   updateWindowDimensions() {
     const { open } = this.state
-    if (window.innerWidth > 768 && !open)
-      this.setState({ open: true, desktop: true })
+    if (window.innerWidth > 768 && !open) this.setState({ open: true })
     if (window.innerWidth <= 768 && open) this.setState({ open: false })
+    this.setState({ desktop: window.innerWidth >= 768 })
   }
 
   render() {
