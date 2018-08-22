@@ -1,11 +1,12 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { Bars, Times } from "styled-icons/fa-solid"
-import { resetList } from "../../utils/css"
+import { debounce } from "lodash"
+import { media } from "../../utils/css"
 import logo from "../../../static/logos/logo.png"
+import SidebarMenu from "../SidebarMenu/sidebar-menu"
 
-const Container = styled.div`
+const SidebarBase = styled.div`
   background-color: #333258;
   text-align: center;
   padding: 40px 15px 0 15px;
@@ -15,29 +16,16 @@ const Container = styled.div`
   position: fixed;
   height: 100vh;
   width: 250px;
-  transform: translateX(0);
-  transform: ${props =>
-    props.open ? `translateX(0) !important` : `translateX(-100%)`};
   transition: 0.5s;
   z-index: 1;
 `
 
-const ListHeader = styled.h2`
-  margin-bottom: 5px;
-  text-align: left;
-  color: #47d8da;
+const DesktopSidebar = styled(SidebarBase)`
+  ${media.phone`transform: translate(-100%);`};
 `
 
-const List = styled.ul`
-  text-align: left;
-  ${resetList};
-  li {
-    a {
-      color: #ffffff;
-      font-size: 0.8em;
-      font-weight: 100;
-    }
-  }
+const MobileSidebar = styled(SidebarBase)`
+  transform: ${props => (props.open ? `translateX(0)` : `translateX(-100%)`)};
 `
 
 const Header = styled.div`
@@ -54,33 +42,26 @@ const Header = styled.div`
     margin-bottom: 0;
   }
 `
-
-const ListItem = styled.li`
-  margin-bottom: 0.05rem;
-`
-
 export default class Sidebar extends Component {
   constructor(props) {
     super(props)
-    this.state = { open: true, desktop: true }
+    this.state = { open: false, desktop: true }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
 
-  componentWillMount() {
-    if (typeof window !== "undefined") {
-      this.updateWindowDimensions()
-      window.addEventListener("resize", this.updateWindowDimensions)
-      // eslint-disable-next-line
-      this.setState({ desktop: window.innerWidth >= 768 })
-    }
-  }
-
   componentDidMount() {
+    window.addEventListener(
+      "resize",
+      debounce(this.updateWindowDimensions, 150)
+    )
     this.updateWindowDimensions()
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions)
+    window.removeEventListener(
+      "resize",
+      debounce(this.updateWindowDimensions, 150)
+    )
   }
 
   updateWindowDimensions() {
@@ -94,48 +75,36 @@ export default class Sidebar extends Component {
     const { open, desktop } = this.state
     return (
       <div>
-        <Container open={open}>
-          {!desktop && (
-            <Times
-              onClick={() => {
-                this.setState({
-                  open: false
-                })
-              }}
-              size={36}
-              css="color: #fff; position: absolute; top: 10px; right: 10px;"
-            />
-          )}
-          <img src={logo} alt="logo" />
-          <ListHeader>Recent Posts</ListHeader>
-          <List>
-            <ListItem>
-              <Link to="reduce">Array.reduce()</Link>
-            </ListItem>
-            <ListItem>
-              <Link to="test">getDerivedStateFromProps()</Link>
-            </ListItem>
-          </List>
-          <ListHeader>Series</ListHeader>
-          <List>
-            <ListItem>
-              <Link to="tags/react">React</Link>
-            </ListItem>
-            <ListItem>
-              <Link to="tags/array">Arrays</Link>
-            </ListItem>
-          </List>
-        </Container>
-        <Header open={!open}>
-          <Bars
-            onClick={() => {
-              this.setState({ open: true })
-            }}
-            css="color: #fff"
-            size={30}
-          />
-          <img src={logo} alt="header-logo" />
-        </Header>
+        {desktop ? (
+          <DesktopSidebar>
+            <SidebarMenu />
+          </DesktopSidebar>
+        ) : (
+          <Fragment>
+            <MobileSidebar open={open} key="sidebar">
+              <Times
+                onClick={() => {
+                  this.setState({
+                    open: false
+                  })
+                }}
+                size={36}
+                css="color: #fff; position: absolute; top: 10px; right: 10px;"
+              />
+              <SidebarMenu />
+            </MobileSidebar>
+            <Header open={!open}>
+              <Bars
+                onClick={() => {
+                  this.setState({ open: true })
+                }}
+                css="color: #fff"
+                size={30}
+              />
+              <img src={logo} alt="header-logo" />
+            </Header>
+          </Fragment>
+        )}
       </div>
     )
   }

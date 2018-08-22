@@ -11,8 +11,7 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 1000px;
   margin-left: 250px;
-  transform: translateY(-64px);
-  ${media.tablet`margin-left: 0px; transform: translateY(0);`};
+  ${media.tablet`margin-left: 0px;`};
   transition: 0.5s;
 `
 const Grid = styled.div``

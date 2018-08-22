@@ -11,6 +11,9 @@ sutroTheme.overrideThemeStyles = () => ({
   "h2,h3,h4,h5,h6": {
     marginTop: "2rem"
   },
+  html: {
+    fontSize: "100%"
+  },
   body: {
     wordWrap: "normal"
   }
