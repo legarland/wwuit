@@ -4,49 +4,68 @@ import { Link } from "gatsby"
 import logo from "../../../static/logos/logo.png"
 import { resetList } from "../../utils/css"
 
-const ListHeader = styled.h2`
-  margin-bottom: 5px;
-  text-align: left;
-  color: #47d8da;
-`
-
 const List = styled.ul`
   text-align: left;
   ${resetList};
-  li {
-    a {
-      color: #ffffff;
-      font-size: 0.8em;
-      font-weight: 100;
-    }
-  }
 `
 
 const ListItem = styled.li`
-  margin-bottom: 0.05rem;
+  margin-bottom: 0.75rem;
+`
+
+const MenuLink = styled(Link)`
+  color: #47d8da;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  font-size: 1.51572rem;
+  line-height: 1.1rem;
+  text-shadow: 1px 1px 1px #222;
+`
+
+const LogoTagline = styled.h3`
+  text-transform: uppercase;
+  line-height: 1.3rem;
+  margin: 0;
+  text-shadow: 1px 1px 1px #222;
+  text-align: left;
+  color: #fff;
+`
+
+const Logo = styled.div`
+  img {
+    max-width: 100%;
+  }
+`
+
+const LogoContainer = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2rem;
 `
 
 export default class SidebarMenu extends Component {
   render() {
     return (
       <div>
-        <img src={logo} alt="logo" />
-        <ListHeader>Recent Posts</ListHeader>
+        <LogoContainer>
+          <Logo>
+            <img src={logo} alt="logo" />
+          </Logo>
+          <LogoTagline>
+            When Would
+            <br />I Use
+            <br />
+            That?
+          </LogoTagline>
+        </LogoContainer>
         <List>
           <ListItem>
-            <Link to="reduce">Array.reduce()</Link>
+            <MenuLink to="about">Latest Posts</MenuLink>
           </ListItem>
           <ListItem>
-            <Link to="test">getDerivedStateFromProps()</Link>
-          </ListItem>
-        </List>
-        <ListHeader>Series</ListHeader>
-        <List>
-          <ListItem>
-            <Link to="tags/react">React</Link>
-          </ListItem>
-          <ListItem>
-            <Link to="tags/array">Arrays</Link>
+            <MenuLink to="/">Collections</MenuLink>
           </ListItem>
         </List>
       </div>

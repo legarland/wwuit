@@ -16,6 +16,9 @@ sutroTheme.overrideThemeStyles = () => ({
   },
   body: {
     wordWrap: "normal"
+  },
+  img: {
+    marginBottom: 0
   }
 })
 

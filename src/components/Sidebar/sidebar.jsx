@@ -10,9 +10,6 @@ const SidebarBase = styled.div`
   background-color: #333258;
   text-align: center;
   padding: 40px 15px 0 15px;
-  img {
-    max-width: 50%;
-  }
   position: fixed;
   height: 100vh;
   width: 250px;
