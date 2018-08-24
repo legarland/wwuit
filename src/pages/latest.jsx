@@ -1,30 +1,25 @@
-import React from "react"
-import Helmet from "react-helmet"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
-import Layout from "../layout"
-import PostListing from "../components/PostListing/PostListing"
-import SEO from "../components/SEO/SEO"
-import config from "../../data/SiteConfig"
+import Layout from "../layout/index"
 
-class Index extends React.Component {
+export default class Latest extends Component {
   render() {
-    console.log(this.props)
     const { edges = [] } = this.props.data.allMarkdownRemark || {}
+    console.log(edges)
     return (
       <Layout location={this.props.location}>
-        <Helmet title={config.siteTitle} />
-        <SEO />
-        <PostListing postEdges={edges} />
+        <h1>Latest Posts</h1>
+        {edges.map(post => (
+          <div key={post.node.fields.slug}>{post.node.frontmatter.title}</div>
+        ))}
       </Layout>
     )
   }
 }
 
-export default Index
-
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query IndexQuery {
+  query LatestQuery {
     allMarkdownRemark(
       limit: 2000
       filter: { frontmatter: { draft: { ne: true } } }

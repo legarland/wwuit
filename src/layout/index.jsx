@@ -11,9 +11,10 @@ const Container = styled.div`
   margin: 0 auto;
   max-width: 1000px;
   margin-left: 250px;
-  ${media.tablet`margin-left: 0px;`};
-  transition: 0.5s;
+  ${media.desktop`margin-left: 80px;`};
+  ${media.tablet`margin-left: 0px; padding-top: 50px;`};
 `
+
 const Grid = styled.div``
 
 export default class MainLayout extends React.Component {
@@ -57,14 +58,12 @@ export default class MainLayout extends React.Component {
     // const { open } = this.state.open
     return (
       <Grid>
+        <Helmet>
+          <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
+          <meta name="description" content={config.siteDescription} />
+        </Helmet>
         <Sidebar />
-        <Container>
-          <Helmet>
-            <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
-            <meta name="description" content={config.siteDescription} />
-          </Helmet>
-          {children}
-        </Container>
+        <Container>{children}</Container>
       </Grid>
     )
   }

@@ -48,7 +48,7 @@ const LogoContainer = styled.div`
 export default class SidebarMenu extends Component {
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         <LogoContainer>
           <Logo>
             <img src={logo} alt="logo" />
@@ -62,10 +62,10 @@ export default class SidebarMenu extends Component {
         </LogoContainer>
         <List>
           <ListItem>
-            <MenuLink to="about">Latest Posts</MenuLink>
+            <MenuLink to="latest">Latest Posts</MenuLink>
           </ListItem>
           <ListItem>
-            <MenuLink to="/">Collections</MenuLink>
+            <MenuLink to="collections">Collections</MenuLink>
           </ListItem>
         </List>
       </div>
