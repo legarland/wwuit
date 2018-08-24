@@ -38,7 +38,7 @@ const CardBody = styled.div`
 export default class Card extends Component {
   render() {
     const { title, tech, path } = this.props
-    const { image, color } = devLogos[tech]
+    const { image, color } = devLogos[tech] || {}
     return (
       <CardContainer>
         <CardHeader color={color}>
