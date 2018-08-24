@@ -70,6 +70,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: "draft",
         value: node.frontmatter.draft
       })
+      createNodeField({
+        node,
+        name: "tech",
+        value: node.frontmatter.tech
+      })
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
         slug = `/${_.kebabCase(node.frontmatter.slug)}`
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {

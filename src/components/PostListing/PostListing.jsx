@@ -1,5 +1,12 @@
 import React from "react"
-import { Link } from "gatsby"
+import styled from "styled-components"
+import Card from "../Card/card"
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+`
 
 class PostListing extends React.Component {
   getPostList() {
@@ -12,6 +19,7 @@ class PostListing extends React.Component {
         title: postEdge.node.frontmatter.title,
         date: postEdge.node.fields.date,
         excerpt: postEdge.node.excerpt,
+        tech: postEdge.node.frontmatter.tech,
         timeToRead: postEdge.node.timeToRead
       })
     })
@@ -20,14 +28,12 @@ class PostListing extends React.Component {
   render() {
     const postList = this.getPostList()
     return (
-      <div>
+      <Grid>
         {/* Your post list here. */
           postList.map(post => (
-            <Link to={post.path} key={post.title}>
-              <h1>{post.title}</h1>
-            </Link>
+            <Card {...post} key={post.path} />
           ))}
-      </div>
+      </Grid>
     )
   }
 }

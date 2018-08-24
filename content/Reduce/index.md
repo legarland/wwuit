@@ -4,6 +4,7 @@ cover: "https://unsplash.it/1000/300/?random?BigTest"
 category: "javascript"
 date: "2018-08-17"
 draft: false
+tech: "js"
 collection: 'javascript-arrays'
 slug: "reduce"
 tags:

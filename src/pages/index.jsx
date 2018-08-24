@@ -8,7 +8,6 @@ import config from "../../data/SiteConfig"
 
 class Index extends React.Component {
   render() {
-    console.log(this.props)
     const { edges = [] } = this.props.data.allMarkdownRemark || {}
     return (
       <Layout location={this.props.location}>
@@ -43,6 +42,7 @@ export const pageQuery = graphql`
             tags
             cover
             date
+            tech
           }
         }
       }
