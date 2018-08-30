@@ -1,7 +1,9 @@
 import Typography from "typography"
+import githubTheme from "typography-theme-github"
 import sutroTheme from "typography-theme-sutro"
 
-sutroTheme.overrideThemeStyles = () => ({
+const myTheme = githubTheme
+myTheme.overrideThemeStyles = () => ({
   "ol,ul": {
     marginLeft: "20px"
   },
@@ -24,6 +26,6 @@ sutroTheme.overrideThemeStyles = () => ({
 })
 
 // githubTheme.plugins = [new CodePlugin()]
-const typography = new Typography(sutroTheme)
+const typography = new Typography(myTheme)
 
 export default typography

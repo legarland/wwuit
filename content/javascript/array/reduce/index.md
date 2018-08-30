@@ -1,6 +1,7 @@
 ---
 title: "Array.reduce()"
 cover: "https://unsplash.it/1000/300/?random?BigTest"
+subtext: "A quick look into the potential uses of the the array reduce method."
 category: "javascript"
 date: "2018-08-17"
 draft: false

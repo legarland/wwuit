@@ -13,6 +13,7 @@ class Index extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={config.siteTitle} />
         <SEO />
+        <h1>Latest Posts</h1>
         <PostListing postEdges={edges} />
       </Layout>
     )
@@ -39,6 +40,7 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
+            subtext
             tags
             cover
             date

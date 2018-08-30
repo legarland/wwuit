@@ -4,7 +4,7 @@ import Card from "../Card/card"
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
 `
 
@@ -19,6 +19,7 @@ class PostListing extends React.Component {
         title: postEdge.node.frontmatter.title,
         date: postEdge.node.fields.date,
         excerpt: postEdge.node.excerpt,
+        subtext: postEdge.node.frontmatter.subtext,
         tech: postEdge.node.frontmatter.tech,
         timeToRead: postEdge.node.timeToRead
       })

@@ -6,6 +6,7 @@ import { debounce } from "lodash"
 import { media } from "../../utils/css"
 import logo from "../../../static/logos/logo.png"
 import SidebarMenu from "../SidebarMenu/sidebar-menu"
+import UserInfo from "../UserInfo/UserInfo"
 
 const SidebarBase = styled.div`
   background-color: #333258;
