@@ -1,6 +1,6 @@
 import React from "react"
 import Helmet from "react-helmet"
-// import styled from "styled-components"
+import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../layout"
 import UserInfo from "../components/UserInfo/UserInfo"
@@ -18,6 +18,11 @@ import "./post.css"
 //   background-size: cover;
 // `
 
+const PostText = styled.div`
+  margin: 0px auto;
+  max-width: 40rem;
+`
+
 export default class PostTemplate extends React.Component {
   render() {
     const { slug } = this.props.pageContext
@@ -31,7 +36,7 @@ export default class PostTemplate extends React.Component {
     }
     return (
       <Layout location={this.props.location}>
-        <div>
+        <PostText>
           <Helmet>
             <title>{`${post.title} | ${config.siteTitle}`}</title>
           </Helmet>
@@ -46,7 +51,7 @@ export default class PostTemplate extends React.Component {
             <UserInfo config={config} />
             <Disqus postNode={postNode} />
           </div>
-        </div>
+        </PostText>
       </Layout>
     )
   }

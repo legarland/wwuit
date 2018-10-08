@@ -5,7 +5,6 @@ import Layout from "../layout"
 import PostListing from "../components/PostListing/PostListing"
 import SEO from "../components/SEO/SEO"
 import config from "../../data/SiteConfig"
-import AnimatedLogo from "../components/AnimatedLogo/animated-logo"
 
 class Index extends React.Component {
   render() {
@@ -16,7 +15,6 @@ class Index extends React.Component {
         <SEO />
         <h1>Latest Posts</h1>
         <PostListing postEdges={edges} />
-        <AnimatedLogo />
       </Layout>
     )
   }

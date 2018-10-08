@@ -1,25 +1,35 @@
-import React, { Component } from "react";
-import _ from "lodash";
-import { Link } from "gatsby";
+import React, { Component } from "react"
+import styled from "styled-components"
+import { Tags } from "styled-icons/fa-solid/Tags"
+import _ from "lodash"
+import { Link } from "gatsby"
+
+const TagContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const TagLink = styled(Link)`
+  display: inline-block;
+  margin-right: 5px;
+`
 
 class PostTags extends Component {
   render() {
-    const { tags } = this.props;
+    const { tags } = this.props
     return (
-      <div className="post-tag-container">
+      <TagContainer>
+        <Tags size={16} color="#aaa" style={{ marginRight: 10 }} />
         {tags &&
-          tags.map(tag => (
-            <Link
-              key={tag}
-              style={{ textDecoration: "none" }}
-              to={`/tags/${_.kebabCase(tag)}`}
-            >
-              <button>{tag}</button>
-            </Link>
+          tags.map((tag, index) => (
+            <TagLink key={tag} to={`/tags/${_.kebabCase(tag)}`}>
+              {tag}
+              {index !== tags.length - 1 && ","}
+            </TagLink>
           ))}
-      </div>
-    );
+      </TagContainer>
+    )
   }
 }
 
-export default PostTags;
+export default PostTags

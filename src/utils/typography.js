@@ -26,7 +26,8 @@ myTheme.overrideThemeStyles = () => ({
   a: {
     backgroundImage: "none",
     color: "#1F8C98",
-    fontWeight: "bold"
+    fontWeight: "normal",
+    textShadow: "none"
   },
   p: {
     lineHeight: "1.75rem"

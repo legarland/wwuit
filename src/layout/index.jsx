@@ -4,21 +4,17 @@ import styled from "styled-components"
 import { media } from "../utils/css"
 import config from "../../data/SiteConfig"
 import "./index.css"
-import Sidebar from "../components/Sidebar/sidebar"
+import Header from "../components/Header/header"
+import Hero from "../components/Hero/hero"
 
 const Container = styled.div`
-  padding: 40px 80px;
   margin: 0 auto;
-  margin-left: 250px;
-  ${media.desktop`margin-left: 80px;`};
-  ${media.tablet`margin-left: 0px; padding: 60px 30px 30px 30px;`};
+  padding-top: 80px;
+  max-width: 1200px;
+  ${media.giant`margin: 0 20px;`};
 `
 
-const ContentContainer = styled.div`
-  max-width: 40rem;
-  position: relative;
-  margin: 0px auto;
-`
+const ContentContainer = styled.div``
 
 const Grid = styled.div``
 
@@ -67,7 +63,7 @@ export default class MainLayout extends React.Component {
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        <Sidebar />
+        <Header />
         <Container>
           <ContentContainer>{children}</ContentContainer>
         </Container>
