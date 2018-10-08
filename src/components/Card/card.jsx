@@ -57,7 +57,6 @@ export default class Card extends Component {
         </CardHeader>
         <CardBody>
           <p>{subtext}</p>
-          <Link to={path}>Check it out!</Link>
         </CardBody>
       </CardContainer>
     )

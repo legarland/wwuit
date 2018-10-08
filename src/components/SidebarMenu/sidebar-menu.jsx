@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import logo from "../../../static/logos/logo.png"
 import { resetList } from "../../utils/css"
+import AnimatedLogo from "../AnimatedLogo/animated-logo"
 
 const List = styled.ul`
   text-align: left;
@@ -32,28 +33,22 @@ const LogoTagline = styled.h3`
   color: #fff;
 `
 
-const Logo = styled.div`
-  img {
-    max-width: 100%;
-  }
-`
-
 const LogoContainer = styled.div`
   display: grid;
   grid-gap: 20px;
+  align-items: center;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 2rem;
 `
 
 export default class SidebarMenu extends Component {
+  state = { key: Math.random() }
   render() {
     return (
       <div className={this.props.className}>
         <LogoContainer>
-          <Logo>
-            <img src={logo} alt="logo" />
-          </Logo>
-          <LogoTagline>
+          <AnimatedLogo key={this.state.key} />
+          <LogoTagline onMouseEnter={()=>this.setState({ key: Math.random() })}>
             When Would
             <br />I Use
             <br />
