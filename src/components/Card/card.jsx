@@ -50,10 +50,10 @@ export default class Card extends Component {
         <CardHeader color={color}>
           <DevLogo dangerouslySetInnerHTML={{ __html: image }} />
           <CardTitle>{title}</CardTitle>
-          <Gravatar
+          {/* <Gravatar
             style={{ borderRadius: "50%" }}
             email="legarland@gmail.com"
-          />
+          /> */}
         </CardHeader>
         <CardBody>
           <p>{subtext}</p>

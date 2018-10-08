@@ -7,12 +7,17 @@ import "./index.css"
 import Sidebar from "../components/Sidebar/sidebar"
 
 const Container = styled.div`
-  padding: 25px;
+  padding: 40px 80px;
   margin: 0 auto;
-  max-width: 1000px;
   margin-left: 250px;
   ${media.desktop`margin-left: 80px;`};
-  ${media.tablet`margin-left: 0px; padding-top: 50px;`};
+  ${media.tablet`margin-left: 0px; padding: 60px 30px 30px 30px;`};
+`
+
+const ContentContainer = styled.div`
+  max-width: 40rem;
+  position: relative;
+  margin: 0px auto;
 `
 
 const Grid = styled.div``
@@ -63,7 +68,9 @@ export default class MainLayout extends React.Component {
           <meta name="description" content={config.siteDescription} />
         </Helmet>
         <Sidebar />
-        <Container>{children}</Container>
+        <Container>
+          <ContentContainer>{children}</ContentContainer>
+        </Container>
       </Grid>
     )
   }

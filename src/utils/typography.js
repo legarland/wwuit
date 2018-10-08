@@ -1,8 +1,8 @@
 import Typography from "typography"
 import githubTheme from "typography-theme-github"
-import sutroTheme from "typography-theme-sutro"
+import fairyTheme from "typography-theme-fairy-gates"
 
-const myTheme = githubTheme
+const myTheme = fairyTheme
 myTheme.overrideThemeStyles = () => ({
   "ol,ul": {
     marginLeft: "20px"
@@ -11,7 +11,7 @@ myTheme.overrideThemeStyles = () => ({
     marginTop: "0"
   },
   "h2,h3,h4,h5,h6": {
-    marginTop: "2rem"
+    marginTop: "2.5rem"
   },
   html: {
     fontSize: "100%"
@@ -22,6 +22,14 @@ myTheme.overrideThemeStyles = () => ({
   },
   img: {
     marginBottom: 0
+  },
+  a: {
+    backgroundImage: "none",
+    color: "#1F8C98",
+    fontWeight: "bold"
+  },
+  p: {
+    lineHeight: "1.75rem"
   }
 })
 

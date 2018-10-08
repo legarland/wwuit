@@ -9,3 +9,8 @@ html {
 body {
   margin: 0;
 }
+
+.gatsby-highlight {
+  margin-left: -1.575rem;
+  margin-right: -1.575rem;
+}

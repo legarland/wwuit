@@ -53,13 +53,13 @@ const Content = ({ leftX, rightX, opacity, scale }) => (
 )
 
 export default class AnimatedLogo extends Component {
-  state = {
-    key: Math.random()
-  }
+  // state = {
+  //   key: Math.random()
+  // }
   render() {
     return (
       <Spring
-        key={this.state.key}
+        // key={this.state.key}
         config={{
           ...config.wobbly,
           tension: 100,

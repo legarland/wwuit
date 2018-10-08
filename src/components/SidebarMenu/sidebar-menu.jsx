@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import logo from "../../../static/logos/logo.png"
+import logo from "../../../static/logos/logo.svg"
 import { resetList } from "../../utils/css"
 import AnimatedLogo from "../AnimatedLogo/animated-logo"
 
@@ -42,13 +42,12 @@ const LogoContainer = styled.div`
 `
 
 export default class SidebarMenu extends Component {
-  state = { key: Math.random() }
   render() {
     return (
       <div className={this.props.className}>
         <LogoContainer>
-          <AnimatedLogo key={this.state.key} />
-          <LogoTagline onMouseEnter={()=>this.setState({ key: Math.random() })}>
+          <img src={logo} alt="logo" />
+          <LogoTagline>
             When Would
             <br />I Use
             <br />
