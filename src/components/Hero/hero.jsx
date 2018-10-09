@@ -33,7 +33,6 @@ export default class Hero extends Component {
               <stop offset="0.7" stopColor="#514b9d" />
             </linearGradient>
           </defs>
-          <title>Untitled-1</title>
           <path
             d="M0,1H2850.29V175.53c-247.44,40.17-519.46,103-822,118.92-490.31,25.78-726,115.92-1207.15,143.17C565.84,452.08,290.41,480.82,0,531.09Z"
             transform="translate(0 -1)"

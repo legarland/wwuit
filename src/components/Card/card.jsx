@@ -66,6 +66,7 @@ export default class Card extends Component {
         </CardHeader>
         <CardBody>
           <p>{subtext}</p>
+          <Link to={path}>View</Link>
         </CardBody>
         <CardFooter>
           <PostTags tags={tags} />

@@ -10,7 +10,7 @@ class Index extends React.Component {
   render() {
     const { edges = [] } = this.props.data.allMarkdownRemark || {}
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} home>
         <Helmet title={config.siteTitle} />
         <SEO />
         <h1>Latest Posts</h1>

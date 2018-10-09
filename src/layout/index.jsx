@@ -57,16 +57,15 @@ export default class MainLayout extends React.Component {
   }
 
   render() {
-    const { children } = this.props
-    // const { open } = this.state.open
+    const { children, home } = this.props
     return (
       <Grid>
         <Helmet>
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        <Header />
-        <Hero />
+        <Header home={home} />
+        {home && <Hero />}
         <Container>
           <ContentContainer>{children}</ContentContainer>
         </Container>

@@ -30,6 +30,14 @@ const HeaderContainer = styled.div`
       );
       opacity: 0.08;
     }`};
+  ${props =>
+    !props.theme.isHome &&
+    props.theme.showBorder &&
+    `
+      background: #24C6DC;
+      background: -webkit-linear-gradient(to left, #514A9D, #24C6DC);
+      background: linear-gradient(to left, #514A9D, #24C6DC);
+    `};
 `
 
 const HeaderInner = styled.div`
@@ -83,10 +91,12 @@ export default class Header extends Component {
 
   render() {
     const { top } = this.state
+    const { home } = this.props
     const theme = {
       headerBG: top ? "transparent" : "#fff",
       accentColor: top ? "#fff" : "#3FC2D6",
-      showBorder: top
+      showBorder: top,
+      isHome: home
     }
 
     return (
