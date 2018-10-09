@@ -69,17 +69,17 @@ export default class Header extends Component {
   }
 
   componentDidMount = () => {
-    this.scrollListener = window.addEventListener("scroll", () => {
-      if (window.scrollY > 20 && this.state.top) this.setState({ top: false })
-      if (window.scrollY <= 20 && !this.state.top) this.setState({ top: true })
-    })
+    window.addEventListener("scroll", this.handleScroll)
   }
 
   componentWillUnmount = () => {
-    window.removeEventListener(this.scrollListener)
+    window.removeEventListener("scroll", this.handleScroll)
   }
 
-  scrollListener
+  handleScroll = () => {
+    if (window.scrollY > 20 && this.state.top) this.setState({ top: false })
+    if (window.scrollY <= 20 && !this.state.top) this.setState({ top: true })
+  }
 
   render() {
     const { top } = this.state
