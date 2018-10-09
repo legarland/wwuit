@@ -30,6 +30,7 @@ const NavContainer = styled.nav`
 const MenuButton = styled(Menu)`
   margin: 8px 0;
   display: none;
+  color: ${props => props.theme.accentColor};
   ${media.tablet`display: block;`};
 `
 const MenuCloseButton = styled(Close)`
@@ -77,7 +78,6 @@ export default class Nav extends Component {
         ) : (
           <MenuButton
             size={30}
-            color="#000"
             onClick={() => this.setState({ menuOpen: true })}
           />
         )}
