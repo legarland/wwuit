@@ -1,17 +1,35 @@
 import React, { Component } from "react"
-import Helmet from "react-helmet"
 import { Link } from "gatsby"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import Logo from "../Logo/logo"
 import Nav from "../Nav/nav"
 
 const HeaderContainer = styled.div`
-  border-bottom: solid 1px #eee;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   padding: 0 20px;
-  /* background-color: #fff; */
+  background-color: ${props => props.theme.headerBG};
+  transition: 0.5s;
+  ${props =>
+    !props.theme.showBorder && `box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2)`};
+  ${props =>
+    props.theme.showBorder &&
+    `&:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-image: linear-gradient(
+        -90deg,
+        rgba(14, 30, 37, 0) 0,
+        #0e1e25 15%,
+        #0e1e25 80%,
+        rgba(14, 30, 37, 0) 100%
+      );
+      opacity: 0.08;
+    }`};
 `
 
 const HeaderInner = styled.div`
@@ -28,7 +46,7 @@ const HeaderInner = styled.div`
 const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
-  font-weight: normal;
+  font-weight: bold;
   text-transform: uppercase;
   line-height: 1rem;
   svg {
@@ -39,30 +57,50 @@ const LogoLink = styled(Link)`
 const LogoText = styled.div`
   font-style: italic;
   display: inline-block;
-  color: var(--accent-color);
+  color: ${props => props.theme.accentColor};
 `
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      top: true
+    }
+  }
+
+  componentDidMount = () => {
+    this.scrollListener = window.addEventListener("scroll", () => {
+      if (window.scrollY > 20 && this.state.top) this.setState({ top: false })
+      if (window.scrollY <= 20 && !this.state.top) this.setState({ top: true })
+    })
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener(this.scrollListener)
+  }
+
+  scrollListener
+
   render() {
+    const { top } = this.state
+    const theme = {
+      headerBG: top ? "transparent" : "#fff",
+      accentColor: top ? "#fff" : "#3FC2D6",
+      showBorder: top
+    }
+
     return (
-      <HeaderContainer>
-        {/* <Helmet>
-          <style>
-            {`
-                :root {
-                  --accent-color: #fff;
-                }
-              `}
-          </style>
-        </Helmet> */}
-        <HeaderInner>
-          <LogoLink to="/" style={{ height: "24px" }}>
-            <Logo />
-            <LogoText>When Would I Use That?</LogoText>
-          </LogoLink>
-          <Nav />
-        </HeaderInner>
-      </HeaderContainer>
+      <ThemeProvider theme={theme}>
+        <HeaderContainer>
+          <HeaderInner>
+            <LogoLink to="/" style={{ height: "24px" }}>
+              <Logo color={theme.accentColor} />
+              <LogoText>When Would I Use That?</LogoText>
+            </LogoLink>
+            <Nav />
+          </HeaderInner>
+        </HeaderContainer>
+      </ThemeProvider>
     )
   }
 }

@@ -11,6 +11,8 @@ const Container = styled.div`
   margin: 0 auto;
   padding-top: 80px;
   max-width: 1200px;
+  z-index: 2;
+  position: relative;
   ${media.giant`margin: 0 20px;`};
 `
 
@@ -64,6 +66,7 @@ export default class MainLayout extends React.Component {
           <meta name="description" content={config.siteDescription} />
         </Helmet>
         <Header />
+        <Hero />
         <Container>
           <ContentContainer>{children}</ContentContainer>
         </Container>

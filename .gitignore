@@ -57,3 +57,6 @@ public/
 
 # Bundle stats
 bundle-stats.json
+
+# Mac Crap
+.DS_Store

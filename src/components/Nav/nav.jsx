@@ -23,7 +23,6 @@ const NavContainer = styled.nav`
     transition: .2s;
     &.active {
       transform: translateY(0);
-
     }
   `};
 `
@@ -41,12 +40,12 @@ const MenuCloseButton = styled(Close)`
 
 const NavLink = styled(Link)`
   border-bottom: 3px solid transparent;
-  color: var(--accent-color);
+  color: ${props => props.theme.accentColor};
   font-size: 14px;
   margin-bottom: 0;
   margin-left: 20px;
   padding: 15px 5px 7px;
-  font-weight: normal;
+  font-weight: bold;
   text-transform: uppercase;
   display: inline-block;
   transition: 0.75s;
@@ -54,7 +53,7 @@ const NavLink = styled(Link)`
   &:focus,
   &.active {
     background-color: transparent;
-    border-bottom: 3px solid var(--accent-color);
+    border-bottom: 3px solid ${props => props.theme.accentColor};
   }
 `
 
