@@ -25,7 +25,7 @@ const paths = {
 }
 
 const Content = ({ leftX, rightX, opacity, scale }) => (
-  <svg style={{ maxWidth: "100%" }} viewBox="0 0 245.4 187.7">
+  <svg style={{ maxWidth: "100%", maxHeight: 100 }} viewBox="0 0 245.4 187.7">
     <g>
       <path
         id="left-bracket"
@@ -41,13 +41,16 @@ const Content = ({ leftX, rightX, opacity, scale }) => (
         transform={`translate(${rightX})`}
         d={paths.rightBracket}
       />
-      <path
+      {/* <path
         transform={`scale(${scale})`}
         style={{ transformOrigin: "center" }}
         id="question"
         fill="#FFF"
         d={paths.question}
-      />
+      /> */}
+      <text fontSize="40px" fontFamily="Quattrocento Sans" color="#FFF">
+        When would I use
+      </text>
     </g>
   </svg>
 )
